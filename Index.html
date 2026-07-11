@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VITAHOGAR - Asesoría profesional para obtener tu crédito Mejoravit del INFONAVIT. Hasta $169,030 MXN para remodelar, ampliar o reparar tu hogar." />
+  <meta name="theme-color" content="#4f6618" />
+  <title>VITAHOGAR - Asesoría Mejoravit</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-background": "#1b1c1c",
+            "background": "#fbf9f8",
+            "primary-fixed": "#d0ed8f",
+            "on-primary-fixed": "#141f00",
+            "surface-container-highest": "#e4e2e2",
+            "on-surface-variant": "#45483b",
+            "surface-variant": "#e4e2e2",
+            "tertiary-fixed-dim": "#c4c7c3",
+            "on-tertiary-fixed-variant": "#444844",
+            "surface-container": "#efeded",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#b1e4fc",
+            "on-secondary-container": "#33677c",
+            "on-surface": "#1b1c1c",
+            "on-primary-container": "#314400",
+            "secondary-fixed": "#bce9ff",
+            "tertiary": "#5b5f5c",
+            "on-error-container": "#93000a",
+            "surface-tint": "#4f6618",
+            "tertiary-container": "#a7aaa6",
+            "outline": "#757969",
+            "surface-dim": "#dbd9d9",
+            "surface": "#fbf9f8",
+            "inverse-surface": "#303030",
+            "primary-container": "#98b35c",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f3",
+            "on-primary-fixed-variant": "#384e00",
+            "secondary-fixed-dim": "#9bcee5",
+            "inverse-on-surface": "#f2f0f0",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#b5d176",
+            "surface-container-high": "#eae8e7",
+            "surface-bright": "#fbf9f8",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#3b3f3c",
+            "outline-variant": "#c5c8b6",
+            "primary-fixed-dim": "#b5d176",
+            "secondary": "#316579",
+            "on-error": "#ffffff",
+            "primary": "#4f6618",
+            "tertiary-fixed": "#e0e3df",
+            "on-tertiary-fixed": "#191c1a"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "base": "8px",
+            "xs": "4px",
+            "lg": "48px",
+            "md": "24px",
+            "xl": "80px",
+            "margin-desktop": "64px",
+            "sm": "12px",
+            "gutter": "24px"
+          },
+          fontFamily: {
+            "body-md": ["Inter", "system-ui", "sans-serif"],
+            "headline-lg-mobile": ["Manrope", "system-ui", "sans-serif"],
+            "headline-xl": ["Manrope", "system-ui", "sans-serif"],
+            "headline-lg": ["Manrope", "system-ui", "sans-serif"],
+            "body-sm": ["Inter", "system-ui", "sans-serif"],
+            "label-bold": ["Inter", "system-ui", "sans-serif"],
+            "headline-md": ["Manrope", "system-ui", "sans-serif"],
+            "body-lg": ["Inter", "system-ui", "sans-serif"],
+            "caption": ["Inter", "system-ui", "sans-serif"]
+          },
+          fontSize: {
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+            "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "label-bold": ["14px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "caption": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", system-ui, sans-serif; }
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined";
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Brand-tinted ambient shadow for elevated cards (Level 1). */
+    .shadow-elev-1 { box-shadow: 0px 4px 20px rgba(61, 112, 133, 0.08); }
+    .shadow-elev-2 { box-shadow: 0px 12px 32px rgba(61, 112, 133, 0.12); }
+    .hover\:shadow-elev-2:hover { box-shadow: 0px 12px 32px rgba(61, 112, 133, 0.12); }
+
+    /* Mobile menu: slide-down + fade. Toggled by .is-open on #mobile-menu. */
+    #mobile-menu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-8px);
+      transition: max-height 200ms ease-out, opacity 200ms ease-out, transform 200ms ease-out;
+      pointer-events: none;
+    }
+    #mobile-menu.is-open {
+      max-height: calc(100vh - 5rem);
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #mobile-menu,
+      #mobile-menu.is-open {
+        transition: none;
+        transform: none;
+      }
+    }
+
+    /* Testimonial slider animation */
+    @keyframes slideUp {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(0, -50%, 0); }
+    }
+
+    .animate-slide-up {
+      animation: slideUp var(--duration) linear infinite;
+      will-change: transform;
+      /* Skip the first paint so the loop starts cleanly, mid-cycle */
+      animation-delay: -0.1s;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+
+  <!-- TopNavBar -->
+  <nav aria-label="Principal"
+       class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 shadow-elev-1 border-b border-outline-variant/20">
+    <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto h-20">
+      <a class="flex items-center gap-3" href="#" aria-label="VITAHOGAR - Inicio">
+        <img alt="VITAHOGAR" src="/brand_assets/Logo_Letras_VH-removebg-preview.png"
+             class="h-9 md:h-10 w-auto object-contain rounded-lg" />
+      </a>
+
+      <div class="hidden md:flex gap-2 items-center">
+        <a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-1 px-3 py-2"
+           href="#" aria-current="page">Inicio</a>
+        <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
+           href="#proceso">Proceso</a>
+        <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
+           href="#requisitos">Requisitos</a>
+        <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
+           href="#testimonios">Testimonios</a>
+        <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
+           href="#contacto">Contacto</a>
+      </div>
+
+      <a href="https://wa.me/525548229886"
+             target="_blank" rel="noopener noreferrer"
+         class="hidden md:inline-flex items-center bg-primary-container text-on-primary-container font-label-bold text-label-bold px-md py-sm rounded-lg hover:bg-primary hover:text-on-primary transition-colors duration-200 shadow-elev-1 active:scale-95">
+        Pre-califícate ahora
+      </a>
+
+      <button id="burger" type="button"
+              class="md:hidden text-secondary p-2 rounded-lg hover:bg-primary-container/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined text-3xl" data-icon-menu aria-hidden="true">menu</span>
+        <span class="material-symbols-outlined text-3xl hidden" data-icon-close aria-hidden="true">close</span>
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+         aria-label="Menú móvil"
+         aria-hidden="true" hidden
+         class="md:hidden bg-surface/95 backdrop-blur-md border-t border-outline-variant/20 shadow-elev-2">
+      <ul class="flex flex-col gap-1 px-margin-mobile py-md max-w-7xl mx-auto">
+        <li>
+          <a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-1 px-3 py-3 block rounded-lg"
+             href="#" aria-current="page" data-menu-link>Inicio</a>
+        </li>
+        <li>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
+             href="#proceso" data-menu-link>Proceso</a>
+        </li>
+        <li>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
+             href="#requisitos" data-menu-link>Requisitos</a>
+        </li>
+        <li>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
+             href="#testimonios" data-menu-link>Testimonios</a>
+        </li>
+        <li>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
+             href="#contacto" data-menu-link>Contacto</a>
+        </li>
+        <li class="pt-sm">
+          <a href="https://wa.me/525548229886"
+             target="_blank" rel="noopener noreferrer" data-menu-link
+             class="flex items-center justify-center w-full bg-primary-container text-on-primary-container font-label-bold text-label-bold px-md py-sm rounded-lg hover:bg-primary hover:text-on-primary transition-colors duration-200 shadow-elev-1 active:scale-95">
+            Pre-califícate ahora
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+
+    <!-- Hero Section -->
+    <section class="relative pt-xl pb-lg md:py-24 px-margin-mobile md:px-margin-desktop overflow-hidden">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+        <div class="flex flex-col gap-md z-10">
+          <p class="font-label-bold text-label-bold text-primary uppercase tracking-wider">
+            Crédito Mejoravit · INFONAVIT
+          </p>
+          <h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-secondary">
+            Tu hogar merece una mejora. Recibe hasta
+            <span class="text-primary">$169,030&nbsp;MXN</span>
+            con Mejoravit.
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Asesoría profesional para trabajadores del sector privado. Dinero depositado
+            directamente en tu cuenta bancaria para reparar, renovar o ampliar tu casa.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-sm">
+            <a href="https://wa.me/525548229886"
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center bg-primary text-on-primary font-label-bold text-label-bold px-md py-sm rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors duration-200 shadow-elev-1 hover:shadow-elev-2 active:scale-95">
+              Pre-califícate ahora
+            </a>
+            <a href="#requisitos"
+               class="inline-flex items-center justify-center bg-transparent text-secondary border-2 border-secondary font-label-bold text-label-bold px-md py-sm rounded-lg hover:bg-secondary/5 transition-colors duration-200 active:scale-95">
+              Ver requisitos
+            </a>
+          </div>
+          <div class="flex items-center gap-3 mt-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary" aria-hidden="true">verified_user</span>
+            <span class="font-body-sm text-body-sm">Agencia certificada INFONAVIT · CDMX</span>
+          </div>
+        </div>
+
+        <div class="relative w-full h-[360px] md:h-[500px] rounded-2xl overflow-hidden shadow-elev-2">
+          <img class="object-cover w-full h-full"
+               alt="Familia mexicana feliz en una sala moderna recién remodelada con acentos en verde sage y teal, sonriendo y relajada en un sofá confortable. Iluminación suave y natural que transmite calidez, éxito y confianza."
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY-xEXuZtM4kCZX4itLMILyuc-0ACX3Igdv3M4MyvAK78bPYkIBCD1wHhz4utkp7QTzBQ_uf24tgCgI0_be6-6gch_xSRHA5CgR0xo-a9dPSY1VNf06WRNSClCwbDBCWi8lUmF0aeOdJd0xGWVp20VjyoNhO6yWzTyWj9lRiN0egocsRfzRHkIGQeyRLPVp2qQSrtE8HM3p5I8hYpH9DNJlwXAaOWSRRds3-cMYiRFhyda-Q_5H2A" />
+        </div>
+      </div>
+      <!-- Decorative background blob -->
+      <div aria-hidden="true"
+           class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-secondary-container/30 to-transparent rounded-bl-full opacity-50"></div>
+    </section>
+
+    <!-- Value Prop Grid -->
+    <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low"
+             aria-labelledby="beneficios-title">
+      <div class="max-w-7xl mx-auto">
+        <h2 id="beneficios-title" class="sr-only">Beneficios del crédito Mejoravit</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+          <article class="bg-surface p-md rounded-2xl shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex flex-col items-center text-center gap-sm">
+            <div class="w-16 h-16 rounded-full bg-secondary-container/40 text-secondary flex items-center justify-center mb-2">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">task_alt</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-secondary">Sin trámites complejos</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Te guiamos en cada paso del proceso para que no te preocupes por la burocracia.
+            </p>
+          </article>
+
+          <article class="bg-surface p-md rounded-2xl shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex flex-col items-center text-center gap-sm">
+            <div class="w-16 h-16 rounded-full bg-primary-container/30 text-primary flex items-center justify-center mb-2">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">bolt</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-secondary">Aprobación rápida</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Agilizamos tu solicitud para que obtengas tu crédito en el menor tiempo posible.
+            </p>
+          </article>
+
+          <article class="bg-surface p-md rounded-2xl shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex flex-col items-center text-center gap-sm">
+            <div class="w-16 h-16 rounded-full bg-secondary-container/40 text-secondary flex items-center justify-center mb-2">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">home_work</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-secondary">Uso libre para tu hogar</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Utiliza los fondos para remodelar, ampliar o reparar cualquier área de tu casa.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Step-by-Step Section -->
+    <section id="proceso" class="py-xl px-margin-mobile md:px-margin-desktop" aria-labelledby="proceso-title">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-lg">
+          <p class="font-label-bold text-label-bold text-primary uppercase tracking-wider">Proceso</p>
+          <h2 id="proceso-title"
+              class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-secondary mt-2">
+            El camino a tu nuevo hogar en 3 pasos
+          </h2>
+        </div>
+
+        <ol class="relative flex flex-col gap-lg list-none p-0">
+
+          <li class="flex flex-col md:flex-row items-start md:items-center gap-md relative">
+            <div class="md:w-1/2 md:pr-xl order-2 md:order-1 w-full pl-[60px] md:pl-0 text-left md:text-right">
+              <div class="bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto">
+                <h3 class="font-headline-md text-headline-md text-secondary mb-2">1. Pre-calificación gratuita</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Evaluamos tu situación con INFONAVIT sin costo ni compromiso.
+                </p>
+              </div>
+            </div>
+            <div aria-hidden="true"
+                 class="absolute left-0 md:left-1/2 w-14 h-14 bg-primary-container rounded-full flex items-center justify-center border-4 border-surface shadow-elev-1 z-10 -translate-x-0 md:-translate-x-1/2 order-1 md:order-2">
+              <span class="font-headline-md text-headline-md text-on-primary-container">1</span>
+            </div>
+            <div class="md:w-1/2 md:pl-xl order-3 hidden md:block" aria-hidden="true"></div>
+          </li>
+
+          <li class="flex flex-col md:flex-row items-start md:items-center gap-md relative">
+            <div class="md:w-1/2 md:pr-xl order-2 md:order-1 hidden md:block" aria-hidden="true"></div>
+            <div aria-hidden="true"
+                 class="absolute left-0 md:left-1/2 w-14 h-14 bg-surface rounded-full flex items-center justify-center border-4 border-outline-variant shadow-elev-1 z-10 -translate-x-0 md:-translate-x-1/2 order-1 md:order-2">
+              <span class="font-headline-md text-headline-md text-outline">2</span>
+            </div>
+            <div class="md:w-1/2 md:pl-xl order-3 w-full pl-[60px] md:pl-0 text-left">
+              <div class="bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto">
+                <h3 class="font-headline-md text-headline-md text-secondary mb-2">2. Recopilación de documentos</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Te decimos exactamente qué necesitas, de forma clara y sencilla.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="flex flex-col md:flex-row items-start md:items-center gap-md relative">
+            <div class="md:w-1/2 md:pr-xl order-2 md:order-1 w-full pl-[60px] md:pl-0 text-left md:text-right">
+              <div class="bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto">
+                <h3 class="font-headline-md text-headline-md text-secondary mb-2">3. Recepción de fondos</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Recibe el dinero en tu tarjeta y comienza tu remodelación de inmediato.
+                </p>
+              </div>
+            </div>
+            <div aria-hidden="true"
+                 class="absolute left-0 md:left-1/2 w-14 h-14 bg-surface rounded-full flex items-center justify-center border-4 border-outline-variant shadow-elev-1 z-10 -translate-x-0 md:-translate-x-1/2 order-1 md:order-2">
+              <span class="font-headline-md text-headline-md text-outline">3</span>
+            </div>
+            <div class="md:w-1/2 md:pl-xl order-3 hidden md:block" aria-hidden="true"></div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- Requisitos Section -->
+    <section id="requisitos" class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low"
+             aria-labelledby="requisitos-title">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-lg">
+          <p class="font-label-bold text-label-bold text-primary uppercase tracking-wider">Requisitos</p>
+          <h2 id="requisitos-title"
+              class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-secondary mt-2 mb-md">
+            Requisitos para tu Crédito Mejoravit
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+            Para comenzar tu solicitud, asegúrate de cumplir con los siguientes puntos básicos:
+          </p>
+        </div>
+
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-md list-none p-0">
+          <li class="flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Ser trabajador vigente y cotizar ante el INFONAVIT.
+            </p>
+          </li>
+          <li class="flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Tener al menos <strong>1,080 puntos</strong> y 4 meses de antigüedad en el trabajo actual.
+            </p>
+          </li>
+          <li class="flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              La vivienda debe ser de tu propiedad, de tu cónyuge o de un familiar directo.
+            </p>
+          </li>
+          <li class="flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Identificación oficial vigente (INE/Pasaporte) y comprobante de domicilio.
+            </p>
+          </li>
+          <li class="flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20 md:col-span-2">
+            <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Estado de cuenta bancario con <strong>CLABE interbancaria</strong> a tu nombre.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="bg-background my-20 relative">
+      <div class="container z-10 mx-auto">
+        <div class="flex flex-col items-center justify-center max-w-[540px] mx-auto">
+          <div class="flex justify-center">
+            <div class="border py-1 px-4 rounded-lg">Testimonios</div>
+          </div>
+          <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
+            Lo que nuestros usuarios dicen
+          </h2>
+          <p class="text-center mt-5 opacity-75">
+            Vea lo que nuestros clientes tienen que decir sobre nosotros.
+          </p>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+          <!-- First Column (always visible) -->
+          <div class="relative">
+            <div class="animate-slide-up" style="--duration: 15s">
+              <div class="flex flex-col gap-6 pb-6 bg-background">
+                <!-- Testimonial 1 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>"No sabía que podía usar mi ahorro de INFONAVIT sin hipotecar mi casa. Me prestaron $85,000 y remodeló toda la cocina y el baño. El proceso fue muy sencillo."</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Briana Patton" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Lucía Hernandez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora administrativa</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>"Lo mejor fue que mi empresa paga casi la mitad del descuento mensual. Al final me salió muy barato ampliar mi casa con un cuarto extra para mis hijos."</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Bilal Ahmed" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Roberto Sánchez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Operador de planta</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>"En menos de una semana tenía el dinero en mi cuenta. No tuve que pedir prestado ni dar nada en garantía. Es el crédito más accesible que he tenido."</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/3.jpg" alt="Saman Malik" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Patricia López</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora en empresa de valores</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Duplicate stack for seamless infinite loop -->
+              <div class="flex flex-col gap-6 pb-6 bg-background" aria-hidden="true">
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>No sabía que podía usar mi ahorro de INFONAVIT sin hipotecar mi casa. Me prestaron $85,000 y remodeló toda la cocina y el baño. El proceso fue muy sencillo."</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Briana Patton" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Lucía Hernandez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora administrativa</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>"Lo mejor fue que mi empresa paga casi la mitad del descuento mensual. Al final me salió muy barato ampliar mi casa con un cuarto extra para mis hijos."</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Bilal Ahmed" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Roberto Sánchez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Operador de planta</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>"En menos de una semana tenía el dinero en mi cuenta. No tuve que pedir prestado ni dar nada en garantía. Es el crédito más accesible que he tenido."</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/3.jpg" alt="Saman Malik" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Patricia López</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora en empresa de valores</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Column (hidden on mobile, visible on md and up) -->
+          <div class="hidden md:block relative">
+            <div class="animate-slide-up" style="--duration: 19s">
+              <div class="flex flex-col gap-6 pb-6 bg-background">
+                <!-- Testimonial 4 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>This credit's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/4.jpg" alt="Omar Raza" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Omar Raza</div>
+                      <div class="leading-5 opacity-60 tracking-tight">CEO</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 5 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>Its robust features and quick support have transformed our workflow, making us significantly more efficient.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/5.jpg" alt="Zainab Hussain" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Zainab Hussain</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Project Manager</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 6 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/6.jpg" alt="Aliza Khan" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Aliza Khan</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Business Analyst</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Duplicate stack for seamless infinite loop -->
+              <div class="flex flex-col gap-6 pb-6 bg-background" aria-hidden="true">
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>This credit's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/4.jpg" alt="Omar Raza" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Omar Raza</div>
+                      <div class="leading-5 opacity-60 tracking-tight">CEO</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>Its robust features and quick support have transformed our workflow, making us significantly more efficient.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/5.jpg" alt="Zainab Hussain" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Zainab Hussain</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Project Manager</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/6.jpg" alt="Aliza Khan" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Aliza Khan</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Business Analyst</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Column (hidden on md and lg, visible on lg and up) -->
+          <div class="hidden lg:block relative">
+            <div class="animate-slide-up" style="--duration: 17s">
+              <div class="flex flex-col gap-6 pb-6 bg-background">
+                <!-- Testimonial 7 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>Our business functions improved with a user-friendly design and positive customer feedback.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/7.jpg" alt="Farhan Siddiqui" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Farhan Siddiqui</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Marketing Director</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 8 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/8.jpg" alt="Sana Sheikh" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Sana Sheikh</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Sales Manager</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 9 -->
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>Using this credit, our online presence and conversions significantly improved, boosting business performance.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/9.jpg" alt="Hassan Ali" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Hassan Ali</div>
+                      <div class="leading-5 opacity-60 tracking-tight">E-commerce Manager</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Duplicate stack for seamless infinite loop -->
+              <div class="flex flex-col gap-6 pb-6 bg-background" aria-hidden="true">
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>Our business functions improved with a user-friendly design and positive customer feedback.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/7.jpg" alt="Farhan Siddiqui" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Farhan Siddiqui</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Marketing Director</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/women/8.jpg" alt="Sana Sheikh" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Sana Sheikh</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Sales Manager</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
+                  <div>Using this credit, our online presence and conversions significantly improved, boosting business performance.</div>
+                  <div class="flex items-center gap-2 mt-5">
+                    <img width="40" height="40" src="https://randomuser.me/api/portraits/men/9.jpg" alt="Hassan Ali" class="h-10 w-10 rounded-full" />
+                    <div class="flex flex-col">
+                      <div class="font-medium tracking-tight leading-5">Hassan Ali</div>
+                      <div class="leading-5 opacity-60 tracking-tight">E-commerce Manager</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="py-xl px-margin-mobile md:px-margin-desktop bg-secondary-fixed/20 relative overflow-hidden"
+             aria-labelledby="confianza-title">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-xl">
+        <div class="md:w-1/2 z-10">
+          <p class="font-label-bold text-label-bold text-primary uppercase tracking-wider">Confianza</p>
+          <h2 id="confianza-title"
+              class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-secondary mt-2 mb-md">
+            Asesoría Certificada y Transparente
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+            Ubicados en CDMX, somos expertos en navegar las reglas de INFONAVIT con total
+            confianza. Nuestro objetivo es que obtengas los beneficios que te corresponden
+            de forma segura.
+          </p>
+          <div class="inline-flex items-center gap-sm bg-surface px-md py-sm rounded-full shadow-elev-1 border border-outline-variant/30">
+            <span class="material-symbols-outlined text-primary" aria-hidden="true">verified_user</span>
+            <span class="font-label-bold text-label-bold text-secondary">Agencia Certificada</span>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 z-10">
+          <div class="bg-surface p-md rounded-2xl shadow-elev-2">
+            <img class="w-full h-auto rounded-lg object-cover"
+                 alt="Asesor financiero profesional sentado en un escritorio moderno en una oficina bien iluminada de CDMX, sonriendo con confianza mientras explica un documento a un cliente. Estética limpia, moderna y confiable, con tonos sutiles en verde sage y teal."
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFkDv6x8rCEuvXrxsLyyZV4zSHARoocw7X7ERxkGbo7vCiy80vm6O4hT5zQXRIMZ3odGekqk5rAD3inS9Tow9syWRlG7_fNoDHzVYCQNvVwtA9jeZrWCxHfd4Ml9HT02fh_LHp5kMRRXkvWb7_atS4e2IjVB82fn8MXknVS2uX04wcbw7BJ7etV_GENIUOhUgGq7VyoMHRq_1KYYdfNC7LhRR7hDfcSUWELiP7sWigOiqZPqdtYC0" />
+          </div>
+        </div>
+      </div>
+      <div aria-hidden="true"
+           class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl -z-0"></div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contacto" class="py-xl px-margin-mobile md:px-margin-desktop text-center bg-surface"
+             aria-labelledby="cta-title">
+      <div class="max-w-3xl mx-auto">
+        <h2 id="cta-title"
+            class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-secondary mb-md">
+          Comienza hoy tu proyecto de remodelación.
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+          No dejes pasar la oportunidad de mejorar tu calidad de vida.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-md">
+          <a href="https://wa.me/525548229886"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center bg-primary text-on-primary font-label-bold text-label-bold px-md py-sm rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors duration-200 shadow-elev-1 active:scale-95">
+            Pre-califícate ahora
+          </a>
+          <a href="https://wa.me/525548229886"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2 bg-transparent text-secondary border-2 border-secondary font-label-bold text-label-bold px-md py-sm rounded-lg hover:bg-secondary/5 transition-colors duration-200 active:scale-95">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">chat</span>
+            Contactar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest w-full py-xl border-t border-outline-variant/30">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+      <div class="md:col-span-12 flex flex-col md:flex-row justify-between items-center gap-md mb-md border-b border-outline-variant/20 pb-md">
+        <img alt="VITAHOGAR" src="/brand_assets/Logo Letras VH.PNG"
+             class="h-9 md:h-10 w-auto object-contain" />
+        <nav aria-label="Enlaces legales" class="flex flex-wrap justify-center gap-md">
+          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Aviso de Privacidad</a>
+          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Términos y Condiciones</a>
+          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Contacto</a>
+          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Ubicación CDMX</a>
+        </nav>
+      </div>
+      <div class="md:col-span-12 text-center md:text-left">
+        <p class="font-caption text-caption text-secondary">
+          © 2026 VITAHOGAR. Todos los derechos reservados. Asesoría Hipotecaria Profesional.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('burger');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    var iconOpen = btn.querySelector('[data-icon-menu]');
+    var iconClose = btn.querySelector('[data-icon-close]');
+    var links = menu.querySelectorAll('[data-menu-link]');
+    var firstLink = links[0];
+    var mqDesktop = window.matchMedia('(min-width: 768px)');
+
+    function setOpen(open) {
+      if (open) {
+        menu.hidden = false;
+        // Force a reflow so the CSS transition plays from the closed state.
+        menu.offsetHeight;
+        menu.classList.add('is-open');
+        menu.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Cerrar menú');
+        if (iconOpen) iconOpen.classList.add('hidden');
+        if (iconClose) iconClose.classList.remove('hidden');
+        if (firstLink) firstLink.focus({ preventScroll: true });
+      } else {
+        menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
+        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
+        setTimeout(function () {
+          if (!menu.classList.contains('is-open')) menu.hidden = true;
+        }, 220);
+      }
+    }
+    var isOpen = function () { return menu.classList.contains('is-open'); };
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(!isOpen());
+    });
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!isOpen()) return;
+      if (menu.contains(e.target) || btn.contains(e.target)) return;
+      setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) { setOpen(false); btn.focus(); }
+    });
+
+    // Auto-close if the viewport grows past the md breakpoint while open.
+    function onMq(e) { if (e.matches && isOpen()) setOpen(false); }
+    if (mqDesktop.addEventListener) mqDesktop.addEventListener('change', onMq);
+    else mqDesktop.addListener(onMq);
+  })();
+</script>
+<script type="module">
+  import React from 'https://esm.react.dev/react';
+  import { createRoot } from 'https://esm.react.dev/react-dom/client';
+  import { motion } from 'https://esm.sh/framer-motion';
+  import { TestimonialsColumn } from '/components/ui/testimonials-columns-1.tsx';
+
+  const testimonials = [
+    {
+      text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+      image: "https://randomuser.me/api/portraits/women/1.jpg",
+      name: "Briana Patton",
+      role: "Operations Manager",
+    },
+    {
+      text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+      image: "https://randomuser.me/api/portraits/men/2.jpg",
+      name: "Bilal Ahmed",
+      role: "IT Manager",
+    },
+    {
+      text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+      image: "https://randomuser.me/api/portraits/women/3.jpg",
+      name: "Saman Malik",
+      role: "Customer Support Lead",
+    },
+    {
+      text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+      image: "https://randomuser.me/api/portraits/men/4.jpg",
+      name: "Omar Raza",
+      role: "CEO",
+    },
+    {
+      text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+      image: "https://randomuser.me/api/portraits/women/5.jpg",
+      name: "Zainab Hussain",
+      role: "Project Manager",
+    },
+    {
+      text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+      image: "https://randomuser.me/api/portraits/women/6.jpg",
+      name: "Aliza Khan",
+      role: "Business Analyst",
+    },
+    {
+      text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+      image: "https://randomuser.me/api/portraits/men/7.jpg",
+      name: "Farhan Siddiqui",
+      role: "Marketing Director",
+    },
+    {
+      text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+      image: "https://randomuser.me/api/portraits/women/8.jpg",
+      name: "Sana Sheikh",
+      role: "Sales Manager",
+    },
+    {
+      text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+      image: "https://randomuser.me/api/portraits/men/9.jpg",
+      name: "Hassan Ali",
+      role: "E-commerce Manager",
+    },
+  ];
+
+  const firstColumn = testimonials.slice(0, 3);
+  const secondColumn = testimonials.slice(3, 6);
+  const thirdColumn = testimonials.slice(6, 9);
+
+  const Testimonials = () => {
+    return (
+      <section className="bg-background my-20 relative">
+        <div className="container z-10 mx-auto">
+          <div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+          >
+            <div className="flex justify-center">
+              <div className="border py-1 px-4 rounded-lg">Testimonials</div>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
+              What our users say
+            </h2>
+            <p className="text-center mt-5 opacity-75">
+              See what our customers have to say about us.
+            </p>
+          </div>
+
+          <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+            <TestimonialsColumn testimonials={firstColumn} duration={15} />
+            <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+            <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  const container = document.getElementById('testimonials-container');
+  const root = createRoot(container);
+  root.render(<Testimonials />);
+</script>
+</body>
+</html>
