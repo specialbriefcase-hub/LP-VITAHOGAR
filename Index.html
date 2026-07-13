@@ -206,6 +206,75 @@
     @media (prefers-reduced-motion: reduce) {
       .card-hover-ring::before { transition: none; }
     }
+
+    /* TopNavBar link animation */
+    .nav-underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #4f6618;
+      border-radius: 9999px;
+      transform: translateX(0) scaleX(1);
+      transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+                  width 350ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, width;
+      pointer-events: none;
+    }
+
+    /* Color flash on click (desktop). Overrides the link's text color
+       for the duration of the .is-clicking class. */
+    [data-nav-link].is-clicking {
+      color: #4f6618;
+      transition: color 180ms ease-out;
+    }
+
+    /* Per-item left bar for the mobile menu. The JS toggles .is-active
+       on the link to fade the bar in and shift the link's text to primary. */
+    .nav-link-mobile {
+      position: relative;
+      transition: color 200ms ease-out, padding-left 200ms ease-out;
+    }
+    .nav-link-mobile::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 60%;
+      background: #4f6618;
+      border-radius: 9999px;
+      opacity: 0;
+      transition: opacity 200ms ease-out;
+    }
+    .nav-link-mobile.is-active {
+      color: #4f6618;
+      padding-left: 0.75rem;
+    }
+    .nav-link-mobile.is-active::before {
+      opacity: 1;
+    }
+
+    /* Burger button pulse. Toggled by JS for 200ms when the active
+       section changes. */
+    #burger {
+      transition: transform 200ms ease-out;
+    }
+    #burger.is-pulsing {
+      transform: scale(1.08);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nav-underline,
+      [data-nav-link].is-clicking,
+      .nav-link-mobile,
+      .nav-link-mobile::before,
+      #burger {
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
@@ -219,17 +288,18 @@
              class="h-9 md:h-10 w-auto object-contain rounded-lg" />
       </a>
 
-      <div class="hidden md:flex gap-2 items-center">
-        <a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-1 px-3 py-2"
-           href="#" aria-current="page">Inicio</a>
+      <div class="hidden md:flex gap-2 items-center relative" data-nav-row>
+        <a class="font-label-bold text-label-bold text-on-surface-variant border-primary px-3 py-2"
+           href="#" aria-current="page" data-nav-link data-target="">Inicio</a>
         <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
-           href="#proceso">Proceso</a>
+           href="#proceso" data-nav-link data-target="proceso">Proceso</a>
         <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
-           href="#requisitos">Requisitos</a>
+           href="#requisitos" data-nav-link data-target="requisitos">Requisitos</a>
         <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
-           href="#testimonios">Testimonios</a>
+           href="#testimonios" data-nav-link data-target="testimonios">Testimonios</a>
         <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
-           href="#contacto">Contacto</a>
+           href="#contacto" data-nav-link data-target="contacto">Contacto</a>
+        <span id="nav-underline" class="nav-underline" aria-hidden="true"></span>
       </div>
 
       <a href="https://wa.me/525548229886"
@@ -252,24 +322,24 @@
          class="md:hidden bg-surface/95 backdrop-blur-md border-t border-outline-variant/20 shadow-elev-2">
       <ul class="flex flex-col gap-1 px-margin-mobile py-md max-w-7xl mx-auto">
         <li>
-          <a class="font-label-bold text-label-bold text-primary border-b-2 border-primary pb-1 px-3 py-3 block rounded-lg"
-             href="#" aria-current="page" data-menu-link>Inicio</a>
+          <a class="font-label-bold text-label-bold text-on-surface-variant border-primary pb-1 px-3 py-3 block rounded-lg nav-link-mobile is-active"
+             href="#" aria-current="page" data-menu-link data-nav-link data-target="">Inicio</a>
         </li>
         <li>
-          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
-             href="#proceso" data-menu-link>Proceso</a>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200 nav-link-mobile"
+             href="#proceso" data-menu-link data-nav-link data-target="proceso">Proceso</a>
         </li>
         <li>
-          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
-             href="#requisitos" data-menu-link>Requisitos</a>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200 nav-link-mobile"
+             href="#requisitos" data-menu-link data-nav-link data-target="requisitos">Requisitos</a>
         </li>
         <li>
-          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
-             href="#testimonios" data-menu-link>Testimonios</a>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200 nav-link-mobile"
+             href="#testimonios" data-menu-link data-nav-link data-target="testimonios">Testimonios</a>
         </li>
         <li>
-          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200"
-             href="#contacto" data-menu-link>Contacto</a>
+          <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-3 rounded-lg block transition-colors duration-200 nav-link-mobile"
+             href="#contacto" data-menu-link data-nav-link data-target="contacto">Contacto</a>
         </li>
         <li class="pt-sm">
           <a href="https://wa.me/525548229886"
@@ -974,6 +1044,236 @@
   const container = document.getElementById('testimonials-container');
   const root = createRoot(container);
   root.render(<Testimonials />);
+</script>
+
+<script>
+  /* TopNavBar link animation — FLIP morph + IntersectionObserver scroll spy.
+     Mirrors the burger-menu IIFE style (line 811). Respects
+     prefers-reduced-motion. See docs/superpowers/specs/2026-07-13-topnavbar-link-animation-design.md. */
+  (function () {
+    var row = document.querySelector('[data-nav-row]');
+    var underline = document.getElementById('nav-underline');
+    var desktopLinks = row ? Array.prototype.slice.call(row.querySelectorAll('[data-nav-link]')) : [];
+    var mobileLinks = Array.prototype.slice.call(document.querySelectorAll('#mobile-menu [data-nav-link]'));
+    var burger = document.getElementById('burger');
+    var nav = document.querySelector('nav[aria-label="Principal"]');
+
+    if (!row || !underline || desktopLinks.length === 0) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var EASE = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    var MORPH_MS = reduced ? 0 : 350;
+    var CLICK_FLASH_MS = reduced ? 0 : 180;
+    var GROW_MS = reduced ? 0 : 200;
+    var PULSE_MS = 200;
+
+    var currentTarget = ''; // current active data-target value ('' = Inicio)
+    var rafPending = false;
+    var pendingTarget = null;
+    var clickLock = false;
+
+    function targetOf(link) {
+      return link ? (link.getAttribute('data-target') || '') : '';
+    }
+
+    function setMobileActive(target) {
+      for (var i = 0; i < mobileLinks.length; i++) {
+        var link = mobileLinks[i];
+        if (targetOf(link) === target) link.classList.add('is-active');
+        else link.classList.remove('is-active');
+      }
+    }
+
+    function pulseBurger() {
+      if (!burger || reduced) return;
+      burger.classList.add('is-pulsing');
+      setTimeout(function () { burger.classList.remove('is-pulsing'); }, PULSE_MS);
+    }
+
+    function placeUnderline(link, animate) {
+      var r = link.getBoundingClientRect();
+      var rr = row.getBoundingClientRect();
+      var x = r.left - rr.left;
+      underline.style.width = r.width + 'px';
+      underline.style.transform = 'translateX(' + x + 'px)';
+      if (animate) {
+        underline.style.transition = 'transform ' + MORPH_MS + 'ms ' + EASE + ', width ' + MORPH_MS + 'ms ' + EASE;
+      } else {
+        underline.style.transition = 'none';
+        // Force a reflow so the no-transition position is committed
+        // before we re-enable transitions.
+        void underline.offsetWidth;
+        underline.style.transition = 'transform ' + MORPH_MS + 'ms ' + EASE + ', width ' + MORPH_MS + 'ms ' + EASE;
+      }
+    }
+
+    function morphToTarget(target) {
+      if (target === currentTarget) return;
+      currentTarget = target;
+      var link = null;
+      for (var i = 0; i < desktopLinks.length; i++) {
+        if (targetOf(desktopLinks[i]) === target) { link = desktopLinks[i]; break; }
+      }
+      if (link) placeUnderline(link, true);
+      setMobileActive(target);
+    }
+
+    function scheduleMorph(target) {
+      if (target === currentTarget) return;
+      pendingTarget = target;
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(function () {
+        rafPending = false;
+        if (pendingTarget !== null) {
+          var t = pendingTarget;
+          pendingTarget = null;
+          morphToTarget(t);
+        }
+      });
+    }
+
+    function scrollToTarget(target) {
+      if (target === '') {
+        window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+        return;
+      }
+      var el = document.getElementById(target);
+      if (!el) return;
+      var offset = nav ? nav.offsetHeight : 80;
+      var top = el.getBoundingClientRect().top + window.pageYOffset - offset + 1;
+      window.scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
+    }
+
+    // Click handler
+    function onClick(e) {
+      var link = e.currentTarget;
+      var target = targetOf(link);
+      if (target === currentTarget) {
+        e.preventDefault();
+        return;
+      }
+      e.preventDefault();
+      clickLock = true;
+      // Color flash on clicked link
+      link.classList.add('is-clicking');
+      setTimeout(function () { link.classList.remove('is-clicking'); }, CLICK_FLASH_MS);
+      // Grow underline under clicked link (no morph, no translate).
+      var r = link.getBoundingClientRect();
+      var rr = row.getBoundingClientRect();
+      var x = r.left - rr.left;
+      underline.style.transition = 'transform ' + GROW_MS + 'ms ' + EASE + ', width ' + GROW_MS + 'ms ' + EASE;
+      underline.style.width = r.width + 'px';
+      underline.style.transform = 'translateX(' + x + 'px) scaleX(1)';
+      // After the grow, scroll + morph
+      setTimeout(function () {
+        scrollToTarget(target);
+        // The IntersectionObserver will pick up the new section and
+        // schedule a morph. As a safety net, also schedule one here.
+        scheduleMorph(target);
+        setTimeout(function () { clickLock = false; }, 600);
+      }, GROW_MS);
+    }
+
+    for (var i = 0; i < desktopLinks.length; i++) {
+      desktopLinks[i].addEventListener('click', onClick);
+    }
+
+    // Scroll spy via IntersectionObserver
+    var sectionIds = ['proceso', 'requisitos', 'testimonios', 'contacto'];
+    var sections = sectionIds
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    function dominantSection() {
+      // Among sections currently in the band, pick the one whose top
+      // is closest to the trigger line. If none, fall back to the
+      // last one if we're near the bottom of the document.
+      if (sections.length === 0) return '';
+      var inBand = [];
+      var vh = window.innerHeight;
+      for (var i = 0; i < sections.length; i++) {
+        var s = sections[i];
+        var rect = s.getBoundingClientRect();
+        // "in band" means the section's top has crossed below the upper 30% mark
+        // and the section is still in view.
+        if (rect.top <= vh * 0.35 && rect.bottom > 0) {
+          inBand.push({ id: s.id, top: rect.top });
+        }
+      }
+      if (inBand.length > 0) {
+        // Pick the section whose top is the largest (closest to trigger line from above).
+        inBand.sort(function (a, b) { return b.top - a.top; });
+        return inBand[0].id;
+      }
+      // Fallback: near bottom of document -> activate the last link.
+      var atBottom = (window.innerHeight + window.pageYOffset) >= (document.documentElement.scrollHeight - 4);
+      if (atBottom) return 'contacto';
+      return '';
+    }
+
+    function onScroll() {
+      if (clickLock) return;
+      var t = dominantSection();
+      scheduleMorph(t);
+    }
+
+    if ('IntersectionObserver' in window && sections.length > 0) {
+      var io = new IntersectionObserver(function () {
+        onScroll();
+      }, {
+        root: null,
+        rootMargin: '-30% 0px -65% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+      });
+      for (var j = 0; j < sections.length; j++) io.observe(sections[j]);
+      window.addEventListener('scroll', onScroll, { passive: true });
+    } else {
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    // Re-measure on resize and after fonts load (link widths can change).
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var link = null;
+        for (var i = 0; i < desktopLinks.length; i++) {
+          if (targetOf(desktopLinks[i]) === currentTarget) { link = desktopLinks[i]; break; }
+        }
+        if (link) placeUnderline(link, false);
+      }, 100);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        var link = null;
+        for (var i = 0; i < desktopLinks.length; i++) {
+          if (targetOf(desktopLinks[i]) === currentTarget) { link = desktopLinks[i]; break; }
+        }
+        if (link) placeUnderline(link, false);
+      });
+    }
+
+    // Burger pulse on scroll-driven section changes (independent of
+    // morph — the morph is a visual continuity cue; the pulse is a
+    // subtle confirmation that something changed).
+    var lastDominant = '';
+    var io2 = ('IntersectionObserver' in window)
+      ? new IntersectionObserver(function () {
+          var t = dominantSection();
+          if (t !== lastDominant) {
+            lastDominant = t;
+            pulseBurger();
+          }
+        }, { root: null, rootMargin: '-30% 0px -65% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] })
+      : null;
+    if (io2) {
+      for (var k = 0; k < sections.length; k++) io2.observe(sections[k]);
+    }
+
+    // Boot: place the underline under the initial active link with no animation.
+    placeUnderline(desktopLinks[0], false);
+  })();
 </script>
 
 <script>
