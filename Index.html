@@ -166,6 +166,46 @@
       /* Skip the first paint so the loop starts cleanly, mid-cycle */
       animation-delay: -0.1s;
     }
+
+    /* Animated hover-border gradient for cards (Proceso / Requisitos).
+       The ::before pseudo-element renders a 1.5px conic-gradient ring.
+       A CSS variable --ring-angle (updated by the inline script below)
+       drives the rotation. Brand colors come from the Tailwind config:
+       primary #4f6618, secondary #316579, primary-container #98b35c. */
+    .card-hover-ring {
+      position: relative;
+      isolation: isolate;
+    }
+    .card-hover-ring::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: conic-gradient(
+        from var(--ring-angle, 0deg),
+        #4f6618 0deg,
+        #316579 120deg,
+        #98b35c 240deg,
+        #4f6618 360deg
+      );
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 300ms ease-out;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .card-hover-ring:hover::before,
+    .card-hover-ring:focus-within::before {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card-hover-ring::before { transition: none; }
+    }
   </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
@@ -344,7 +384,7 @@
 
           <li class="flex flex-col md:flex-row items-start md:items-center gap-md relative">
             <div class="md:w-1/2 md:pr-xl order-2 md:order-1 w-full pl-[60px] md:pl-0 text-left md:text-right">
-              <div class="bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300">
+              <div class="card-hover-ring bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300">
                 <h3 class="font-headline-md text-headline-md text-secondary mb-2">1. Pre-calificación gratuita</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Evaluamos tu situación con INFONAVIT sin costo ni compromiso.
@@ -365,7 +405,7 @@
               <span class="font-headline-md text-headline-md text-outline">2</span>
             </div>
             <div class="md:w-1/2 md:pl-xl order-3 w-full pl-[60px] md:pl-0 text-left">
-              <div class="bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300">
+              <div class="card-hover-ring bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300">
                 <h3 class="font-headline-md text-headline-md text-secondary mb-2">2. Recopilación de documentos</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Te decimos exactamente qué necesitas, de forma clara y sencilla.
@@ -376,7 +416,7 @@
 
           <li class="flex flex-col md:flex-row items-start md:items-center gap-md relative">
             <div class="md:w-1/2 md:pr-xl order-2 md:order-1 w-full pl-[60px] md:pl-0 text-left md:text-right">
-              <div class="bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300">
+              <div class="card-hover-ring bg-surface p-md rounded-2xl shadow-elev-1 inline-block w-full md:w-auto shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300">
                 <h3 class="font-headline-md text-headline-md text-secondary mb-2">3. Recepción de fondos</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Recibe el dinero en tu tarjeta y comienza tu remodelación de inmediato.
@@ -410,31 +450,31 @@
         </div>
 
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-md list-none p-0">
-          <li class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+          <li class="card-hover-ring shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
             <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
             <p class="font-body-md text-body-md text-on-surface-variant">
               Ser trabajador vigente y cotizar ante el INFONAVIT.
             </p>
           </li>
-          <li class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+          <li class="card-hover-ring shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
             <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
             <p class="font-body-md text-body-md text-on-surface-variant">
               Tener al menos <strong>1,080 puntos</strong> y 4 meses de antigüedad en el trabajo actual.
             </p>
           </li>
-          <li class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+          <li class="card-hover-ring shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
             <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
             <p class="font-body-md text-body-md text-on-surface-variant">
               La vivienda debe ser de tu propiedad, de tu cónyuge o de un familiar directo.
             </p>
           </li>
-          <li class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
+          <li class="card-hover-ring shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20">
             <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
             <p class="font-body-md text-body-md text-on-surface-variant">
               Identificación oficial vigente (INE/Pasaporte) y comprobante de domicilio.
             </p>
           </li>
-          <li class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20 md:col-span-2">
+          <li class="card-hover-ring shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 flex items-start gap-4 bg-surface p-md rounded-xl shadow-elev-1 border border-outline-variant/20 md:col-span-2">
             <span class="material-symbols-outlined text-primary shrink-0 mt-0.5" aria-hidden="true">check_circle</span>
             <p class="font-body-md text-body-md text-on-surface-variant">
               Estado de cuenta bancario con <strong>CLABE interbancaria</strong> a tu nombre.
@@ -501,7 +541,7 @@
               <!-- Duplicate stack for seamless infinite loop -->
               <div class="flex flex-col gap-6 pb-6 bg-background" aria-hidden="true">
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>No sabía que podía usar mi ahorro de INFONAVIT sin hipotecar mi casa. Me prestaron $85,000 y remodeló toda la cocina y el baño. El proceso fue muy sencillo."</div>
+                  <div>"No sabía que podía usar mi ahorro de INFONAVIT sin hipotecar mi casa. Me prestaron $85,000 y remodeló toda la cocina y el baño. El proceso fue muy sencillo."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Briana Patton" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
@@ -540,7 +580,7 @@
               <div class="flex flex-col gap-6 pb-6 bg-background">
                 <!-- Testimonial 4 -->
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>This credit's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.</div>
+                  <div>Aqui va otro testimonio</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/men/4.jpg" alt="Omar Raza" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
@@ -614,34 +654,34 @@
               <div class="flex flex-col gap-6 pb-6 bg-background">
                 <!-- Testimonial 7 -->
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>Our business functions improved with a user-friendly design and positive customer feedback.</div>
+                  <div>"No sabía que podía usar mi ahorro de INFONAVIT sin hipotecar mi casa. Me prestaron $85,000 y remodeló toda la cocina y el baño. El proceso fue muy sencillo."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/men/7.jpg" alt="Farhan Siddiqui" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
-                      <div class="font-medium tracking-tight leading-5">Farhan Siddiqui</div>
-                      <div class="leading-5 opacity-60 tracking-tight">Marketing Director</div>
+                      <div class="font-medium tracking-tight leading-5">Lucía Hernandez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora administrativa</div>
                     </div>
                   </div>
                 </div>
                 <!-- Testimonial 8 -->
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.</div>
+                  <div>"Lo mejor fue que mi empresa paga casi la mitad del descuento mensual. Al final me salió muy barato ampliar mi casa con un cuarto extra para mis hijos."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/women/8.jpg" alt="Sana Sheikh" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
-                      <div class="font-medium tracking-tight leading-5">Sana Sheikh</div>
-                      <div class="leading-5 opacity-60 tracking-tight">Sales Manager</div>
+                      <div class="font-medium tracking-tight leading-5">Roberto Sánchez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Operador de planta</div>
                     </div>
                   </div>
                 </div>
                 <!-- Testimonial 9 -->
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>Using this credit, our online presence and conversions significantly improved, boosting business performance.</div>
+                  <div>"En menos de una semana tenía el dinero en mi cuenta. No tuve que pedir prestado ni dar nada en garantía. Es el crédito más accesible que he tenido."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/men/9.jpg" alt="Hassan Ali" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
-                      <div class="font-medium tracking-tight leading-5">Hassan Ali</div>
-                      <div class="leading-5 opacity-60 tracking-tight">E-commerce Manager</div>
+                      <div class="font-medium tracking-tight leading-5">Patricia López</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora en empresa de valores</div>
                     </div>
                   </div>
                 </div>
@@ -649,32 +689,32 @@
               <!-- Duplicate stack for seamless infinite loop -->
               <div class="flex flex-col gap-6 pb-6 bg-background" aria-hidden="true">
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>Our business functions improved with a user-friendly design and positive customer feedback.</div>
+                  <div>"No sabía que podía usar mi ahorro de INFONAVIT sin hipotecar mi casa. Me prestaron $85,000 y remodeló toda la cocina y el baño. El proceso fue muy sencillo."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/men/7.jpg" alt="Farhan Siddiqui" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
-                      <div class="font-medium tracking-tight leading-5">Farhan Siddiqui</div>
-                      <div class="leading-5 opacity-60 tracking-tight">Marketing Director</div>
+                      <div class="font-medium tracking-tight leading-5">Lucía Hernandez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora administrativa</div>
                     </div>
                   </div>
                 </div>
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.</div>
+                  <div>"Lo mejor fue que mi empresa paga casi la mitad del descuento mensual. Al final me salió muy barato ampliar mi casa con un cuarto extra para mis hijos."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/women/8.jpg" alt="Sana Sheikh" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
-                      <div class="font-medium tracking-tight leading-5">Sana Sheikh</div>
-                      <div class="leading-5 opacity-60 tracking-tight">Sales Manager</div>
+                      <div class="font-medium tracking-tight leading-5">Roberto Sánchez</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Operador de planta</div>
                     </div>
                   </div>
                 </div>
                 <div class="p-10 rounded-3xl border shadow-lg shadow-[0_0_0_1px_rgba(79,102,24,0.1)] max-w-xs w-full">
-                  <div>Using this credit, our online presence and conversions significantly improved, boosting business performance.</div>
+                  <div>"En menos de una semana tenía el dinero en mi cuenta. No tuve que pedir prestado ni dar nada en garantía. Es el crédito más accesible que he tenido."</div>
                   <div class="flex items-center gap-2 mt-5">
                     <img width="40" height="40" src="https://randomuser.me/api/portraits/men/9.jpg" alt="Hassan Ali" class="h-10 w-10 rounded-full" />
                     <div class="flex flex-col">
-                      <div class="font-medium tracking-tight leading-5">Hassan Ali</div>
-                      <div class="leading-5 opacity-60 tracking-tight">E-commerce Manager</div>
+                      <div class="font-medium tracking-tight leading-5">Patricia López</div>
+                      <div class="leading-5 opacity-60 tracking-tight">Trabajadora en empresa de valores</div>
                     </div>
                   </div>
                 </div>
@@ -934,6 +974,53 @@
   const container = document.getElementById('testimonials-container');
   const root = createRoot(container);
   root.render(<Testimonials />);
+</script>
+
+<script>
+  /* Hover-border gradient controller (Proceso / Requisitos cards).
+     Mirrors the Aceternity HoverBorderGradient 4-direction sweep:
+     on mouseenter, cycle --ring-angle 0 -> 90 -> 180 -> 270 every STEP_MS.
+     On mouseleave, stop and reset. Respects prefers-reduced-motion. */
+  (function () {
+    var STEP_MS = 1500;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timers = new WeakMap();
+
+    function start(el) {
+      if (reduced) { el.style.setProperty('--ring-angle', '0deg'); return; }
+      if (timers.has(el)) return;
+      var angle = 0;
+      el.style.setProperty('--ring-angle', angle + 'deg');
+      var id = setInterval(function () {
+        angle = (angle + 90) % 360;
+        el.style.setProperty('--ring-angle', angle + 'deg');
+      }, STEP_MS);
+      timers.set(el, id);
+    }
+
+    function stop(el) {
+      var id = timers.get(el);
+      if (id != null) { clearInterval(id); timers.delete(el); }
+      el.style.setProperty('--ring-angle', '0deg');
+    }
+
+    document.addEventListener('mouseenter', function (e) {
+      var el = e.target.closest && e.target.closest('.card-hover-ring');
+      if (el) start(el);
+    }, true);
+    document.addEventListener('mouseleave', function (e) {
+      var el = e.target.closest && e.target.closest('.card-hover-ring');
+      if (el) stop(el);
+    }, true);
+    document.addEventListener('focusin', function (e) {
+      var el = e.target.closest && e.target.closest('.card-hover-ring');
+      if (el) start(el);
+    });
+    document.addEventListener('focusout', function (e) {
+      var el = e.target.closest && e.target.closest('.card-hover-ring');
+      if (el) stop(el);
+    });
+  })();
 </script>
 </body>
 </html>
