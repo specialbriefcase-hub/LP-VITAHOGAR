@@ -288,7 +288,7 @@
              class="h-9 md:h-10 w-auto object-contain rounded-lg" />
       </a>
 
-      <div class="hidden md:flex gap-2 items-center relative" data-nav-row>
+      <div class="hidden lg:block gap-1 items-center relative justify-between" data-nav-row>
         <a class="font-label-bold text-label-bold text-on-surface-variant border-primary px-3 py-2"
            href="#" aria-current="page" data-nav-link data-target="">Inicio</a>
         <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary hover:bg-primary-container/10 px-3 py-2 rounded-lg transition-colors duration-200"
@@ -304,12 +304,12 @@
 
       <a href="https://wa.me/525548229886"
              target="_blank" rel="noopener noreferrer"
-         class="hidden md:inline-flex items-center bg-primary-container text-on-primary-container font-label-bold text-label-bold px-md py-sm rounded-full hover:bg-primary hover:text-on-primary transition-colors duration-200 shadow-elev-1 active:scale-95">
+         class="hidden lg:inline-flex items-center bg-primary-container text-on-primary-container font-label-bold text-label-bold px-md py-sm rounded-full hover:bg-primary hover:text-on-primary transition-colors duration-200 shadow-elev-1 active:scale-95">
         Pre-califícate ahora
       </a>
 
       <button id="burger" type="button"
-              class="md:hidden text-secondary p-2 rounded-lg hover:bg-primary-container/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              class="lg:hidden text-secondary p-2 rounded-lg hover:bg-primary-container/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
               aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
         <span class="material-symbols-outlined text-3xl" data-icon-menu aria-hidden="true">menu</span>
         <span class="material-symbols-outlined text-3xl hidden" data-icon-close aria-hidden="true">close</span>
@@ -319,7 +319,7 @@
     <div id="mobile-menu"
          aria-label="Menú móvil"
          aria-hidden="true" hidden
-         class="md:hidden bg-surface/95 backdrop-blur-md border-t border-outline-variant/20 shadow-elev-2">
+         class="lg:hidden bg-surface/95 backdrop-blur-md border-t border-outline-variant/20 shadow-elev-2">
       <ul class="flex flex-col gap-1 px-margin-mobile py-md max-w-7xl mx-auto">
         <li>
           <a class="font-label-bold text-label-bold text-on-surface-variant border-primary pb-1 px-3 py-3 block rounded-lg nav-link-mobile is-active"
@@ -793,39 +793,40 @@
           </div>
         </div>
       </div>
-    </section>
+    
 
-    <!-- Trust Section -->
-    <section class="py-xl px-margin-mobile md:px-margin-desktop bg-secondary-fixed/20 relative overflow-hidden"
+      <!-- Trust Section -->
+      <div class="py-xl px-margin-mobile md:px-margin-desktop bg-secondary-fixed/20 relative overflow-hidden"
              aria-labelledby="confianza-title">
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-xl">
-        <div class="md:w-1/2 z-10">
-          <p class="font-label-bold text-label-bold text-primary uppercase tracking-wider">Confianza</p>
-          <h2 id="confianza-title"
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-xl">
+          <div class="md:w-1/2 z-10">
+            <p class="font-label-bold text-label-bold text-primary uppercase tracking-wider">Confianza</p>
+            <h2 id="confianza-title"
               class= "font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-secondary mt-2 mb-md">
-            Asesoría Certificada y Transparente
-          </h2>
-          <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
-            Ubicados en CDMX, somos expertos en navegar las reglas de MEJORAVIT con total
-            confianza. Nuestro objetivo es que obtengas los beneficios que te corresponden
-            de forma segura.
-          </p>
-          <div class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 inline-flex items-center gap-sm bg-surface px-md py-sm rounded-full shadow-elev-1 border border-outline-variant/30">
-            <span class="material-symbols-outlined text-primary" aria-hidden="true">verified_user</span>
-            <span class="font-label-bold text-label-bold text-secondary">Agencia Certificada</span>
+              Asesoría Certificada y Transparente
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+              Ubicados en CDMX, somos expertos en navegar las reglas de MEJORAVIT con total
+              confianza. Nuestro objetivo es que obtengas los beneficios que te corresponden
+              de forma segura.
+            </p>
+            <div class="shadow-elev-1 hover:shadow-elev-2 transition-shadow duration-300 inline-flex items-center gap-sm bg-surface px-md py-sm rounded-full shadow-elev-1 border border-outline-variant/30">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">verified_user</span>
+              <span class="font-label-bold text-label-bold text-secondary">Agencia Certificada</span>
+            </div>
           </div>
-        </div>
 
-        <div class="md:w-1/2 z-10">
-          <div class="bg-surface p-md rounded-2xl shadow-elev-2">
-            <img class="w-full h-auto rounded-lg object-cover"
-                 alt="Asesor financiero profesional sentado en un escritorio moderno en una oficina bien iluminada de CDMX, sonriendo con confianza mientras explica un documento a un cliente. Estética limpia, moderna y confiable, con tonos sutiles en verde sage y teal."
-                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFkDv6x8rCEuvXrxsLyyZV4zSHARoocw7X7ERxkGbo7vCiy80vm6O4hT5zQXRIMZ3odGekqk5rAD3inS9Tow9syWRlG7_fNoDHzVYCQNvVwtA9jeZrWCxHfd4Ml9HT02fh_LHp5kMRRXkvWb7_atS4e2IjVB82fn8MXknVS2uX04wcbw7BJ7etV_GENIUOhUgGq7VyoMHRq_1KYYdfNC7LhRR7hDfcSUWELiP7sWigOiqZPqdtYC0" />
+          <div class="md:w-1/2 z-10">
+            <div class="bg-surface p-md rounded-2xl shadow-elev-2">
+              <img class="w-full h-auto rounded-lg object-cover"
+                  alt="Asesor financiero profesional sentado en un escritorio moderno en una oficina bien iluminada de CDMX, sonriendo con confianza mientras explica un documento a un cliente. Estética limpia, moderna y confiable, con tonos sutiles en verde sage y teal."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFkDv6x8rCEuvXrxsLyyZV4zSHARoocw7X7ERxkGbo7vCiy80vm6O4hT5zQXRIMZ3odGekqk5rAD3inS9Tow9syWRlG7_fNoDHzVYCQNvVwtA9jeZrWCxHfd4Ml9HT02fh_LHp5kMRRXkvWb7_atS4e2IjVB82fn8MXknVS2uX04wcbw7BJ7etV_GENIUOhUgGq7VyoMHRq_1KYYdfNC7LhRR7hDfcSUWELiP7sWigOiqZPqdtYC0" />
+            </div>
           </div>
         </div>
-      </div>
-      <div aria-hidden="true"
+          <div aria-hidden="true"
            class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl -z-0"></div>
+      </div>
     </section>
 
     <!-- CTA Section -->
@@ -864,10 +865,25 @@
         <img alt="VITAHOGAR" src="/brand_assets/Logo_Letras_VH-removebg-preview.png"
              class="h-9 md:h-10 w-auto object-contain" />
         <nav aria-label="Enlaces legales" class="flex flex-wrap justify-center gap-md">
-          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Aviso de Privacidad</a>
-          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Términos y Condiciones</a>
-          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Contacto</a>
-          <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Ubicación CDMX</a>
+          <div class="font-caption text-caption text-on-surface-variant">
+            <p class="font-label-bold text-label-bold">Legales</p>
+            <br />
+            <div class="flex flex-col gap-1 mt-1">
+              <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Aviso de Privacidad</a>
+              <a class="font-caption text-caption text-on-surface-variant hover:text-secondary hover:opacity-80 transition-colors duration-200" href="#">Términos y Condiciones</a>
+            </div>
+          </div>
+          <div class="font-caption text-caption text-on-surface-variant">
+            <p class="font-label-bold text-label-bold">Contacto</p>
+            <br />
+            <div class="flex flex-col gap-1 mt-1">
+              <a href="tel:+525548229886" class="hover:text-secondary hover:opacity-80 transition-colors duration-200">Whatsapp: 55 4822 9886</a>
+              <a href="mailto:info@vitahogar.com" class="hover:text-secondary hover:opacity-80 transition-colors duration-200">Email: info@vitahogar.com</a>
+              <br />
+              <p>Praga 47 Colonia Juárez, Cuauhtémoc,</p>
+              <p>C.P. 06600, Ciudad de México</p>
+            </div>
+          </div>
         </nav>
       </div>
       <div class="md:col-span-12 text-center md:text-left">
